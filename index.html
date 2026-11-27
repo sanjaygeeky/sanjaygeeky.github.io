@@ -27,9 +27,9 @@ section[id],main[id]{scroll-margin-top:88px}
  .nav-links a{white-space:nowrap}
  section[id],main[id]{scroll-margin-top:112px}
 }
-.to-menu{position:fixed;left:max(20px, env(safe-area-inset-left, 0px));top:50%;z-index:20;display:inline-flex;align-items:center;gap:8px;min-height:48px;padding:0 18px;background:#151B23;border:1px solid #3A4554;color:#E8EDF3;text-decoration:none;font-family:'IBM Plex Sans',system-ui,sans-serif;font-weight:500;font-size:15px;opacity:0;visibility:hidden;transform:translate(-8px,-50%);transition:opacity .2s,transform .2s,visibility .2s}
+.to-menu{position:fixed;right:max(20px, env(safe-area-inset-right, 0px));top:50%;z-index:20;display:inline-flex;align-items:center;gap:8px;min-height:48px;padding:0 18px;background:#151B23;border:1px solid #3A4554;color:#E8EDF3;text-decoration:none;font-family:'IBM Plex Sans',system-ui,sans-serif;font-weight:500;font-size:15px;opacity:0;visibility:hidden;transform:translate(8px,-50%);transition:opacity .2s,transform .2s,visibility .2s}
 .to-menu.show{opacity:1;visibility:visible;transform:translate(0,-50%)}
-@media (max-width:1400px){.to-menu{left:max(10px, env(safe-area-inset-left, 0px));width:44px;min-height:44px;padding:0;justify-content:center;border-radius:50%}.to-menu .to-menu-label{display:none}}
+@media (max-width:1400px){.to-menu{right:max(10px, env(safe-area-inset-right, 0px));width:44px;min-height:44px;padding:0;justify-content:center;border-radius:50%}.to-menu .to-menu-label{display:none}}
 .to-menu:hover{border-color:var(--accent);color:#FFFFFF}
 .to-menu svg{color:var(--accent)}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.to-menu{transition:none}}
