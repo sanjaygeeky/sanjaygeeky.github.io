@@ -16,9 +16,20 @@ html{scroll-behavior:smooth}
 body{margin:0;background:#0D1117}
 a{color:#E8EDF3}a:hover{color:#FFFFFF}
 a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
-section[id],main[id]{scroll-margin-top:16px}
-.to-menu{position:fixed;right:max(20px, env(safe-area-inset-right, 0px));bottom:max(20px, env(safe-area-inset-bottom, 0px));z-index:20;display:inline-flex;align-items:center;gap:8px;min-height:48px;padding:0 18px;background:#151B23;border:1px solid #3A4554;color:#E8EDF3;text-decoration:none;font-family:'IBM Plex Sans',system-ui,sans-serif;font-weight:500;font-size:15px;opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .2s,transform .2s,visibility .2s}
-.to-menu.show{opacity:1;visibility:visible;transform:none}
+.site-header{position:sticky;top:env(safe-area-inset-top, 0px);z-index:30;background:rgba(13,17,23,.92);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top, 0px);z-index:31;background:rgba(13,17,23,.92);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.site-header nav{padding-top:14px !important;padding-bottom:14px !important}
+section[id],main[id]{scroll-margin-top:88px}
+@media (max-width:640px){
+ .site-header nav{flex-wrap:nowrap !important;flex-direction:column;align-items:flex-start !important;gap:6px !important;padding-top:10px !important;padding-bottom:6px !important}
+ .nav-links{flex-wrap:nowrap !important;overflow-x:auto;max-width:100%;gap:0 20px !important;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+ .nav-links::-webkit-scrollbar{display:none}
+ .nav-links a{white-space:nowrap}
+ section[id],main[id]{scroll-margin-top:112px}
+}
+.to-menu{position:fixed;left:max(20px, env(safe-area-inset-left, 0px));top:50%;z-index:20;display:inline-flex;align-items:center;gap:8px;min-height:48px;padding:0 18px;background:#151B23;border:1px solid #3A4554;color:#E8EDF3;text-decoration:none;font-family:'IBM Plex Sans',system-ui,sans-serif;font-weight:500;font-size:15px;opacity:0;visibility:hidden;transform:translate(-8px,-50%);transition:opacity .2s,transform .2s,visibility .2s}
+.to-menu.show{opacity:1;visibility:visible;transform:translate(0,-50%)}
+@media (max-width:1400px){.to-menu{left:max(10px, env(safe-area-inset-left, 0px));width:44px;min-height:44px;padding:0;justify-content:center;border-radius:50%}.to-menu .to-menu-label{display:none}}
 .to-menu:hover{border-color:var(--accent);color:#FFFFFF}
 .to-menu svg{color:var(--accent)}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.to-menu{transition:none}}
@@ -28,13 +39,13 @@ section[id],main[id]{scroll-margin-top:16px}
 <div style="background: #0D1117; color: #E8EDF3; font-family: 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', sans-serif; font-size: 17px; line-height: 1.6; min-height: 100vh">
 
 <!-- NAV -->
-<header id="menu" style="border-bottom: 1px solid #222A35">
+<header id="menu" class="site-header" style="border-bottom: 1px solid #222A35">
 <nav aria-label="Main" style="max-width: 1200px; margin: 0 auto; padding: 20px 24px; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px">
 <a href="#top" style="display: flex; align-items: center; gap: 12px; text-decoration: none; color: #E8EDF3">
 <span style="display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px; border: 1.5px solid var(--accent); color: var(--accent); font-family: 'IBM Plex Mono', ui-monospace, monospace; font-weight: 500; font-size: 15px">SM</span>
 <span style="font-weight: 600; font-size: 16px">Sanjay Mahajan</span>
 </a>
-<div style="display: flex; flex-wrap: wrap; gap: 4px 24px; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 14px">
+<div class="nav-links" style="display: flex; flex-wrap: wrap; gap: 4px 24px; font-family: 'IBM Plex Mono', ui-monospace, monospace; font-size: 14px">
 <a href="#impact" style="text-decoration: none; color: #A9B4C2; padding: 10px 0">impact</a>
 <a href="#about" style="text-decoration: none; color: #A9B4C2; padding: 10px 0">about</a>
 <a href="#experience" style="text-decoration: none; color: #A9B4C2; padding: 10px 0">experience</a>
@@ -318,7 +329,7 @@ section[id],main[id]{scroll-margin-top:16px}
 </div>
 <a href="#menu" class="to-menu" aria-label="Back to menu">
 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5"></path><path d="M6 11l6-6 6 6"></path></svg>
-Menu
+<span class="to-menu-label">Menu</span>
 </a>
 <script>
 (function(){
